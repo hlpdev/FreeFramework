@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/SDK/">
+    <File Path="README.md" />
     <Project Path="SDK/SDK.Client/SDK.Client.csproj" />
     <Project Path="SDK/SDK.Server/SDK.Server.csproj" />
     <Project Path="SDK/SDK/SDK.csproj" />
