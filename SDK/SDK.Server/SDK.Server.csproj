@@ -9,7 +9,6 @@
         <RootNamespace>FreeFramework.SDK.Server</RootNamespace>
         <Configurations>Release</Configurations>
         <Platforms>AnyCPU</Platforms>
-        <Version>1.0</Version>
         <Authors>Hunter Pollock</Authors>
         <Description>A lightweight FiveM .NET resource development kit.</Description>
         <RepositoryUrl>https://github.com/hlpdev/FreeFramework</RepositoryUrl>
