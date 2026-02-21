@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net472</TargetFramework>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <LangVersion>14</LangVersion>
+        <Nullable>enable</Nullable>
+        <AssemblyName>FreeFramework.SDK.Server.net</AssemblyName>
+        <RootNamespace>FreeFramework.SDK.Server</RootNamespace>
+        <Configurations>Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <OutputPath>../../Resources/[FF]/ff-sdk</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SDK\SDK.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CitizenFX.Core.Server" Version="1.0.25963" ExcludeAssets="runtime" />
+      <PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
+      <PackageReference Include="MySqlConnector" Version="2.2.7" />
+    </ItemGroup>
+
+</Project>
