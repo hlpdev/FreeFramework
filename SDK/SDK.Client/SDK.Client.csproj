@@ -14,10 +14,8 @@
         <RepositoryUrl>https://github.com/hlpdev/FreeFramework</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <OutputPath>../../Resources/[FF]/ff-sdk</OutputPath>
+        <PackageIcon>FF.png</PackageIcon>
+        <OutputPath>../../Resources/[FF]/ff-sdk</OutputPath>
     </PropertyGroup>
 
     <ItemGroup>

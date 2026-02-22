@@ -13,6 +13,7 @@
         <RepositoryUrl>https://github.com/hlpdev/FreeFramework</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <PackageIcon>FF.png</PackageIcon>
     </PropertyGroup>
 
     <ItemGroup>
