@@ -18,6 +18,10 @@
         <OutputPath>../../Resources/[FF]/ff-sdk</OutputPath>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <OutputPath>../../Resources/FF/</OutputPath>
+    </PropertyGroup>
+
     <ItemGroup>
       <ProjectReference Include="..\SDK\SDK.csproj" />
       <None Include="FF.png" Pack="true" PackagePath="\" />
