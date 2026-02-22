@@ -15,7 +15,7 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageIcon>FF.png</PackageIcon>
-        <OutputPath>../../Resources/[FF]/ff-sdk</OutputPath>
+        <PackageReadmeFile>../../README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">

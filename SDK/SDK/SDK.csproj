@@ -14,6 +14,7 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageIcon>FF.png</PackageIcon>
+        <PackageReadmeFile>../../README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
