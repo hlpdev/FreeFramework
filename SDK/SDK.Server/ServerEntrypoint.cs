@@ -22,12 +22,22 @@ public sealed class ServerEntrypoint : ServerScript {
 
     public ServerEntrypoint() {
         ServerGlobals.Entrypoint = this;
-        ServerGlobals.StorageProvider = new ServerStorageProvider(API.GetConvar("ff_connection_string", ""));
+        ServerGlobals.StorageProvider = new ServerStorageProvider(API.GetConvar("ff_database_connection", ""));
         ServerGlobals.EventBus = new ServerEventBus(this);
         ServerGlobals.RawEventBus = new ServerRawEventBus(this);
         ServerGlobals.NetworkEventBus = new ServerNetworkEventBus(this);
         ServerGlobals.RawNetworkEventBus = new ServerRawNetworkEventBus(this);
 
+        EventHandlers["onResourceStart"] += (string resourceName) => {
+            if (resourceName != API.GetCurrentResourceName()) {
+                return;
+            }
+            
+            LoadAllModules();
+        };
+    }
+
+    private void LoadAllModules() {
         // Get types from the current app domain that inherit from IServerModule
         Type[] types = AppDomain.CurrentDomain
                                 .GetAssemblies()

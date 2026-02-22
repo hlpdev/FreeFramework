@@ -28,7 +28,17 @@ public sealed class ClientEntrypoint : ClientScript {
         ClientGlobals.RawEventBus = new ClientRawEventBus(this);
         ClientGlobals.NetworkEventBus = new ClientNetworkEventBus(this);
         ClientGlobals.RawNetworkEventBus = new ClientRawNetworkEventBus(this);
-        
+
+        EventHandlers["onClientResourceStart"] += (string resourceName) => {
+            if (resourceName != API.GetCurrentResourceName()) {
+                return;
+            }
+            
+            LoadAllModules();
+        };
+    }
+
+    private void LoadAllModules() {
         // Get types from the current app domain that inherit from IServerModule
         Type[] types = AppDomain.CurrentDomain
                                 .GetAssemblies()
@@ -45,7 +55,7 @@ public sealed class ClientEntrypoint : ClientScript {
         }
 
         // When the resource stops, unload all modules
-        EventHandlers["onResourceStop"] += (string resourceName) => {
+        EventHandlers["onClientResourceStop"] += (string resourceName) => {
             if (resourceName != API.GetCurrentResourceName()) {
                 return;
             }
