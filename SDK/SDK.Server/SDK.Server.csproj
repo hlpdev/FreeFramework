@@ -26,6 +26,8 @@
     <ItemGroup>
       <PackageReference Include="CitizenFX.Core.Server" Version="1.0.25963" ExcludeAssets="runtime" />
       <PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.3" />
       <PackageReference Include="MySqlConnector" Version="2.2.7" />
     </ItemGroup>
 
