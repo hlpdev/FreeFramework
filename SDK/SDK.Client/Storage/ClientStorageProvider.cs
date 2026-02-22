@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 using CitizenFX.Core.Native;
 using FreeFramework.SDK.Runtime;
