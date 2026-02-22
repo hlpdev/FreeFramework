@@ -21,24 +21,12 @@ public sealed class ServerEntrypoint : ServerScript {
     private HashSet<IServerModule> Modules { get; } = [];
 
     public ServerEntrypoint() {
-        var services = new ServiceCollection();
-
-        // Add entrypoint citizen fx script as a singleton
-        services.AddSingleton(this);
-        
-        // Initialize storage services
-        services.AddSingleton<IStorageProvider, ServerStorageProvider>(
-            _ => new ServerStorageProvider(API.GetConvar("ff_database_connection", ""))
-        );
-
-        // Initialize communication services
-        services.AddSingleton<IEventBus, ServerEventBus>();
-        services.AddSingleton<IRawEventBus, ServerRawEventBus>();
-        services.AddSingleton<IServerNetworkEventBus, ServerNetworkEventBus>();
-        services.AddSingleton<IServerRawNetworkEventBus, ServerRawNetworkEventBus>();
-
-        // Create the service provider
-        IServiceProvider provider = services.BuildServiceProvider();
+        ServerGlobals.Entrypoint = this;
+        ServerGlobals.StorageProvider = new ServerStorageProvider(API.GetConvar("ff_connection_string", ""));
+        ServerGlobals.EventBus = new ServerEventBus(this);
+        ServerGlobals.RawEventBus = new ServerRawEventBus(this);
+        ServerGlobals.NetworkEventBus = new ServerNetworkEventBus(this);
+        ServerGlobals.RawNetworkEventBus = new ServerRawNetworkEventBus(this);
 
         // Get types from the current app domain that inherit from IServerModule
         Type[] types = AppDomain.CurrentDomain
@@ -52,7 +40,7 @@ public sealed class ServerEntrypoint : ServerScript {
         // Construct each module and run dependency injection; adds all instances to a modules set
         foreach (Type t in types) {
             Debug.WriteLine($"Starting module {t.FullName}");
-            Modules.Add((IServerModule)ActivatorUtilities.CreateInstance(provider, t));
+            Modules.Add((Activator.CreateInstance(t) as IServerModule)!);
         }
 
         // When the resource stops, unload all modules
