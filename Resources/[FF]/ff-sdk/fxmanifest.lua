@@ -2,18 +2,15 @@ fx_version('cerulean')
 game('gta5')
 
 files {
-    "FreeFramework.SDK.dll",
-    "JetBrains.Annotations.dll",
-    "Microsoft.Bcl.AsyncInterfaces.dll",
-    "Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-    "Microsoft.Extensions.DependencyInjection.dll",
-    "System.Threading.Tasks.Extensions.dll"
+    "*.dll"
 }
 
-dependencies {
-    'baseevents',
-    'spawnmanager'
+server_scripts {
+    'FreeFramework.SDK.Server.net.dll',
+    '*Server.net.dll'
 }
 
-server_script('FreeFramework.SDK.Server.net.dll')
-client_script('FreeFramework.SDK.Client.net.dll')
+client_scripts {
+    'FreeFramework.SDK.Client.net.dll',
+    '*Client.net.dll'
+}
