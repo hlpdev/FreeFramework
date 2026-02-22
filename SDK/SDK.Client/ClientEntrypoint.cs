@@ -28,7 +28,7 @@ public sealed class ClientEntrypoint : ClientScript {
         ClientGlobals.RawEventBus = new ClientRawEventBus(this);
         ClientGlobals.NetworkEventBus = new ClientNetworkEventBus(this);
         ClientGlobals.RawNetworkEventBus = new ClientRawNetworkEventBus(this);
-
+        
         // Get types from the current app domain that inherit from IServerModule
         Type[] types = AppDomain.CurrentDomain
                                 .GetAssemblies()
