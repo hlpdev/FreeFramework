@@ -20,6 +20,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\SDK\SDK.csproj" />
+      <None Include="FF.png" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup>
