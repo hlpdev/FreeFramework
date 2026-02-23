@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using FreeFramework.SDK.Client.Communication;
@@ -36,6 +37,10 @@ public sealed class ClientEntrypoint : ClientScript {
             
             LoadAllModules();
         };
+    }
+
+    public void BindToTick(Func<Task> callback) {
+        Tick += callback;
     }
 
     private void LoadAllModules() {
